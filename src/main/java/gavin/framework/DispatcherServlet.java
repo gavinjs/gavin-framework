@@ -1,6 +1,5 @@
 package gavin.framework;
 
-import com.sun.deploy.util.StringUtils;
 import gavin.framework.bean.Data;
 import gavin.framework.bean.Handler;
 import gavin.framework.bean.Param;
@@ -62,10 +61,10 @@ public class DispatcherServlet extends HttpServlet {
             String body = CodecUtil.decodeURL(StreamUtil.getString(req.getInputStream()));
             if (StringUtil.isNotEmpty(body)) {
                 //这里其实采用的是封装后的StringUtil类
-                String[] params = StringUtils.splitString(body, "&");
+                String[] params = StringUtil.splitString(body, "&");
                 if (ArrayUtil.isNotEmpty(params)) {
                     for (String param : params) {
-                        String[] array = StringUtils.splitString(param, "=");
+                        String[] array = StringUtil.splitString(param, "=");
                         if (ArrayUtil.isNotEmpty(array) && array.length == 2) {
                             String paramName = array[0];
                             String paramValue = array[1];
